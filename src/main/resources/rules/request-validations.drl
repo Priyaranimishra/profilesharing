@@ -1,0 +1,13 @@
+package rules
+ 
+import com.hcl.model.Participant
+
+rule "validate both flat amount and contribution not present"
+	// flatContributionAmt == null and partContributionPct == null
+	when 
+		participant: Participant(flatContributionAmt ==null, partContributionPct == null)
+		
+	then
+		participant.setStatus("Failed");
+		participant.setStausDescription("Validation Failed: Both % contribution and flat amount can not be null.");
+end

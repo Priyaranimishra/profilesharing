@@ -1,0 +1,59 @@
+# ===================================================================
+# Spring Boot configuration for the "prod" profile.
+#
+# This configuration overrides the application.yml file.
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
+# ===================================================================
+# Server
+# ===================================================================
+server:
+  port: 8082
+  context-path: /v1
+
+# ===================================================================
+# Logging
+# ===================================================================
+logging:
+  level:
+    root: info
+    com.nelson.ecd.profitsharing: debug
+
+# ===================================================================
+# springfox
+# ===================================================================
+springfox:
+  documentation:
+    swagger:
+      v2.path: /api-docs
+
+spring:
+  jackson:
+    date-format: com.nelson.ecd.profitsharing.api.config.format.RFC3339DateFormat
+    serialization:
+      write-dates-as-timestamps: false
+
+# ===================================================================
+# Logstash related logging properties
+# ===================================================================
+
+pinster:
+  metrics: 
+    loggingEnabled: true      # enable metrics reporting
+    reportingFrequency: 10    # frequency in seconds to report metrics
+  loggingConfig: 
+    log-stash-enabled : true  #To enable logstash or not
+    logStashConfig: 
+      host: 13.250.40.132    #IP address of Logstash 
+      port: 5000              #Port 
+      queue-size: 512         # Queue size to buffer
+#      reporting-frequency: 60
+ 
+
+ 

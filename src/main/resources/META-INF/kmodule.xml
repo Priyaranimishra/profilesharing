@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kmodule xmlns="http://www.drools.org/xsd/kmodule">
+   <kbase name="rules" packages="rules">
+    	<ksession name="rulesSession" />
+    </kbase>
+    
+    <kbase name="dtables" packages="dtables">
+    	<ksession name="dtableSession" />
+    </kbase>
+
+    <kbase name="validationDtables" packages="validationDtables">
+    	<ksession name="validationDtableSession" />
+    </kbase>
+
+</kmodule>
